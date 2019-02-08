@@ -1,20 +1,20 @@
-#Kijiji Ad Monitor (KAdMon)
+# Kijiji Ad Monitor (KAdMon)
 
-User adds news feeds
+User adds news feeds and they get email alerts when new ads are posted
 
-``FEEDS
-id
-user_id
-name
-feed
+## FEEDS
+* id
+* user_id
+* name
+* feed
 
-``ADS
-id
-feed_id
-title
-description
-link
-price
-emailed
+## ADS
+* id
+* feed_id
+* title
+* description
+* link
+* price
+* emailed
 
 
