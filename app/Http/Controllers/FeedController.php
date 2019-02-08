@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Feed;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class FeedController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([   
+            'name' => 'required',
+            'feed' => 'required',
+        ]);
+        $data = [ 'user_id' => Auth::user()->id, 'name' => $request->name, 'feed' => $request->feed];
+        Feed::create($data);
+
+        return redirect()->back()->with('success', 'Feed created successfully');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Feed  $feed
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Feed $feed)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Feed  $feed
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Feed $feed)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Feed  $feed
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Feed $feed)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Feed  $feed
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Feed $feed)
+    {
+        //
+    }
+}

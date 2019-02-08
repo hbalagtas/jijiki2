@@ -81,8 +81,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Kijiji Ad Monitor
                 </div>
+
+                <p>Monitor Kijiji ads and receive alerts!</p>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
