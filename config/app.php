@@ -177,6 +177,7 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        willvincent\Feeds\FeedsServiceProvider::class,
     ],
 
     /*
@@ -229,6 +230,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Feeds' => willvincent\Feeds\Facades\FeedsFacade::class,
     ],
 
 ];
