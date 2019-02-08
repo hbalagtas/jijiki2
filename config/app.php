@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Jijiki\Providers\AppServiceProvider::class,
+        Jijiki\Providers\AuthServiceProvider::class,
+        // Jijiki\Providers\BroadcastServiceProvider::class,
+        Jijiki\Providers\EventServiceProvider::class,
+        Jijiki\Providers\RouteServiceProvider::class,
 
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
@@ -231,6 +231,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Feeds' => willvincent\Feeds\Facades\FeedsFacade::class,
+
+        'Feed' => Jijiki\Feed::class,
+        'Ad' => Jijiki\Ad::class,
     ],
 
 ];

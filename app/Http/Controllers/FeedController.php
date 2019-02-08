@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Jijiki\Http\Controllers;
 
-use App\Feed;
+use Jijiki\Feed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,7 +49,7 @@ class FeedController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Feed  $feed
+     * @param  \Jijiki\Feed  $feed
      * @return \Illuminate\Http\Response
      */
     public function show(Feed $feed)
@@ -60,7 +60,7 @@ class FeedController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Feed  $feed
+     * @param  \Jijiki\Feed  $feed
      * @return \Illuminate\Http\Response
      */
     public function edit(Feed $feed)
@@ -72,7 +72,7 @@ class FeedController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Feed  $feed
+     * @param  \Jijiki\Feed  $feed
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Feed $feed)
@@ -83,7 +83,7 @@ class FeedController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Feed  $feed
+     * @param  \Jijiki\Feed  $feed
      * @return \Illuminate\Http\Response
      */
     public function destroy(Feed $feed)

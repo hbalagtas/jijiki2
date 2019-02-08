@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Jijiki\Console\Commands;
 
 use Illuminate\Console\Command;
+use Jijiki\Feed;
 
 class ProcessFeeds extends Command
 {
@@ -37,6 +38,9 @@ class ProcessFeeds extends Command
      */
     public function handle()
     {
-        //
+        foreach( Feed::all() as $feed ){
+            $this->info($feed->name);
+            $f = Feeds::make($feed->feed);
+        }
     }
 }

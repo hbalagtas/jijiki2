@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Jijiki;
 
 use Illuminate\Database\Eloquent\Model;
 
