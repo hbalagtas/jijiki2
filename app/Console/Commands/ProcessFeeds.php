@@ -5,6 +5,9 @@ namespace Jijiki\Console\Commands;
 use Illuminate\Console\Command;
 use Jijiki\Feed;
 
+use \Feeds;
+use \HtmlDomParser;
+
 class ProcessFeeds extends Command
 {
     /**
@@ -40,7 +43,10 @@ class ProcessFeeds extends Command
     {
         foreach( Feed::all() as $feed ){
             $this->info($feed->name);
-            $f = Feeds::make($feed->feed);
+            $feed_data = Feeds::make($feed->feed);
+            $items = $feed_data->get_items();
+
+            $parser = new HtmlDomParser;
         }
     }
 }
