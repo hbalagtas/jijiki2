@@ -18,9 +18,10 @@ class CreateAdsTable extends Migration
             $table->integer('feed_id');
             $table->string('title');
             $table->text('description');
+            $table->string('preview');
             $table->string('link');
             $table->string('price');
-            $table->boolean('emailed');
+            $table->boolean('emailed')->default(false);
             $table->timestamps();
         });
     }

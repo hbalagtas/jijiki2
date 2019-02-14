@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
-    protected $fillable = ['feed_id', 'name', 'title', 'description', 'link', 'price', 'emailed', 'created_at', 'updated_at'];
+    protected $fillable = ['feed_id', 'name', 'title', 'description', 'preview', 'link', 'price', 'emailed', 'created_at', 'updated_at'];
 
     protected $dates = [
         'created_at',

@@ -40,7 +40,7 @@ class FeedController extends Controller
             'name' => 'required',
             'feed' => 'required',
         ]);
-        $data = [ 'user_id' => Auth::user()->id, 'name' => $request->name, 'feed' => $request->feed];
+        $data = [ 'user_id' => Auth::user()->id, 'name' => $request->name, 'feed' => $request->feed, 'blocklist' => $request->blocklist];
         Feed::create($data);
 
         return redirect()->back()->with('success', 'Feed created successfully');

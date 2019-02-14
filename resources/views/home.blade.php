@@ -36,6 +36,10 @@
                         {{Form::label('feed', 'Feed Link')}}
                         {{Form::text('feed', null, ['class' => 'form-control', 'placeholder' => 'http://kijiji.rss'])}}
                     </div>
+                     <div class="form-group">
+                        {{Form::label('blocklist', 'Blocked Keywords')}}
+                        {{Form::text('blocklist', "[spam|spam]", ['class' => 'form-control', 'placeholder' => '[spam|spam]'])}}
+                    </div>
                     <div class="form-group">
                         {{Form::submit('Add Feed',['class' => 'form-control'])}}    
                     </div>                    
