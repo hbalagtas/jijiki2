@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<p style="font-family: &quot;Trebuchet MS&quot;, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Jijiki Ads Alert</p>
+<p style="font-family: &quot;Trebuchet MS&quot;, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"></p>
 
 <table id="assets" style="font-family: &quot;Trebuchet MS&quot;, Arial, Helvetica, sans-serif;border-collapse: collapse;width: 100%;">
   <tr>
