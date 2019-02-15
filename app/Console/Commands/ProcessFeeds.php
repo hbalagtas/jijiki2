@@ -98,6 +98,8 @@ class ProcessFeeds extends Command
                     }                    
                 }
             }
+
+            $this->call('jijiki:processads');
         }
     }
 }

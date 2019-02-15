@@ -26,8 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('jijiki:processfeeds')->everyFiveMinutes();
-        $schedule->command('jijiki:processads')->everyFifteenMinutes();
+        $schedule->command('jijiki:processfeeds')->everyTenMinutes();
+        /*$schedule->command('jijiki:processads')->everyTenMinutes();*/
     }
 
     /**
