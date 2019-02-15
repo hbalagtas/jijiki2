@@ -61,14 +61,17 @@ class ProcessFeeds extends Command
                         $link = $item->get_link();
                         $crawler = $client->request('GET', $link);
 
-                        if ( $crawler->filter('span[class^=address]')->count() > 0 ){
-                            $location = $crawler->filter('span[class^=address]')->text();
+                        $address_xpath = 'span[class^=address]';
+                        if ( $crawler->filter($address_xpath)->count() > 0 ){
+                            $location = $crawler->filter($address_xpath)->text();
                         } else {
                             $location = "NA";
                         }
+
+                        $price_xpath = '//*[@id="ViewItemPage"]/div[5]/div[1]/div[1]/div/div/span';
                         
-                        if ( $crawler->filterXPath('//*[@id="ViewItemPage"]/div[5]/div[1]/div[1]/div/div/span/span[1]')->count() > 0){
-                            $price = $crawler->filterXPath('//*[@id="ViewItemPage"]/div[5]/div[1]/div[1]/div/div/span/span[1]')->text();    
+                        if ( $crawler->filterXPath($price_xpath)->count() > 0){
+                            $price = $crawler->filterXPath($price_xpath)->text();    
                         } else {
                             $price = "Free/NA";    
                         }
