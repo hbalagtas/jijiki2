@@ -41,17 +41,19 @@ class ProcessAds extends Command
     {
         foreach ( Feed::all() as $feed ){
             $ads = $feed->ads()->orderBy('price')->whereEmailed(false);
-            Mail::send('emails.ads', ['ads' => $ads], function ($m) use ($feed) {
-                $m->from('do-not-reply@watson.test', 'Jijiki');
-                $m->to($feed->user->email);
-                $m->subject('Jijiki Ads for ' . $feed->name);  
-            }); 
+            if ( $ads->count() > 0 ){
+                Mail::send('emails.ads', ['ads' => $ads], function ($m) use ($feed) {
+                    $m->from('do-not-reply@watson.test', 'Jijiki');
+                    $m->to($feed->user->email);
+                    $m->subject('Jijiki: ' . $feed->name);  
+                }); 
 
-            // check for failures
-            if (Mail::failures()) {
-                $this->info("Failed to send ad emails");
-            } else {
-                $ads->update(['emailed' => true]);
+                // check for failures
+                if (Mail::failures()) {
+                    $this->info("Failed to send ad emails");
+                } else {
+                    $ads->update(['emailed' => true]);
+                }    
             }
         }
     }

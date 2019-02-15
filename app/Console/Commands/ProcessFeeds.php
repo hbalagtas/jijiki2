@@ -61,19 +61,23 @@ class ProcessFeeds extends Command
                         $link = $item->get_link();
                         $crawler = $client->request('GET', $link);
 
-                        $crawler->filter('span[class^=address]')->each(function ($node) {
-                            if ( !empty( $node->text() ) ) {
-                                $location = $node->text();
-                            } else {
-                                $location = "NA";
-                            }
-                        });
-
-                        $price = $crawler->filterXPath('//*[@id="ViewItemPage"]/div[5]/div[1]/div[1]/div/div/span/span[1]')->text();
+                        if ( $crawler->filter('span[class^=address]')->count() > 0 ){
+                            $location = $crawler->filter('span[class^=address]')->text();
+                        } else {
+                            $location = "NA";
+                        }
+                        
+                        if ( $crawler->filterXPath('//*[@id="ViewItemPage"]/div[5]/div[1]/div[1]/div/div/span/span[1]')->count() > 0){
+                            $price = $crawler->filterXPath('//*[@id="ViewItemPage"]/div[5]/div[1]/div[1]/div/div/span/span[1]')->text();    
+                        } else {
+                            $price = "Free/NA";    
+                        }
 
                         $src = $crawler->filterXPath('//*[@id="mainHeroImage"]/img')->extract(['src']);
                         if ( count($src) > 0 ){
                             $preview = $src[0];
+                        } else {
+                            $preview = "NA";
                         }
 
                         $ad = new Ad;
@@ -81,6 +85,7 @@ class ProcessFeeds extends Command
                         $ad->feed_id = $feed->id;
                         $ad->title = $title;
                         $ad->description = $description;
+                        $ad->location = $location;
                         $ad->price = str_replace(["$", ","], "", $price);
                         $ad->preview = $preview;
                         $ad->link = $link;

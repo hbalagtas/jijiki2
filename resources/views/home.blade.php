@@ -28,18 +28,7 @@
                     <p>Add a feed to start monitoring ads.</p>
 
                     {{Form::open(['route' => 'feed.store'])}}
-                    <div class="form-group">
-                        {{Form::label('name', 'Feed Name')}}
-                        {{Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Road Bikes'])}}
-                    </div>
-                    <div class="form-group">
-                        {{Form::label('feed', 'Feed Link')}}
-                        {{Form::text('feed', null, ['class' => 'form-control', 'placeholder' => 'http://kijiji.rss'])}}
-                    </div>
-                     <div class="form-group">
-                        {{Form::label('blocklist', 'Blocked Keywords')}}
-                        {{Form::text('blocklist', "[spam|spam]", ['class' => 'form-control', 'placeholder' => '[spam|spam]'])}}
-                    </div>
+                    @include('feeds.form')
                     <div class="form-group">
                         {{Form::submit('Add Feed',['class' => 'form-control'])}}    
                     </div>                    
@@ -52,6 +41,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Created</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -60,6 +50,7 @@
                                 <td>{{$feed->id}}</td>
                                 <td>{{$feed->name}}</td>
                                 <td>{{$feed->created_at->diffForHumans()}}</td>
+                                <td><a href="{{route('feed.edit', $feed->id)}}">Edit</a></td>
                             </tr>
                             @endforeach                            
                         </tbody>

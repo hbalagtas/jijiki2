@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Toronto',
 
     /*
     |--------------------------------------------------------------------------
@@ -234,6 +234,8 @@ return [
 
         'Feed' => Jijiki\Feed::class,
         'Ad' => Jijiki\Ad::class,
+
+        'Client' => Goutte\Client::class,
     ],
 
 ];

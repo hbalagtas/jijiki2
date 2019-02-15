@@ -18,6 +18,7 @@ class CreateAdsTable extends Migration
             $table->integer('feed_id');
             $table->string('title');
             $table->text('description');
+            $table->string('location');
             $table->string('preview');
             $table->string('link');
             $table->string('price');

@@ -65,7 +65,7 @@ class FeedController extends Controller
      */
     public function edit(Feed $feed)
     {
-        //
+        return view('feeds.edit', compact('feed'));
     }
 
     /**
@@ -77,7 +77,8 @@ class FeedController extends Controller
      */
     public function update(Request $request, Feed $feed)
     {
-        //
+        $feed->update($request->all());
+        return redirect('/home')->with('status', 'Feed updated successfully');
     }
 
     /**
