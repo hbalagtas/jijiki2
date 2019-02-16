@@ -78,7 +78,7 @@ class FeedController extends Controller
     public function update(Request $request, Feed $feed)
     {
         $feed->update($request->all());
-        return redirect('/home')->with('status', 'Feed updated successfully');
+        return redirect('/')->with('status', 'Feed updated successfully');
     }
 
     /**
