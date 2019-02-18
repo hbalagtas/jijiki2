@@ -234,6 +234,7 @@ return [
 
         'Feed' => Jijiki\Feed::class,
         'Ad' => Jijiki\Ad::class,
+        'Blocklist' => Jijiki\Blocklist::class,
 
         'Client' => Goutte\Client::class,
     ],

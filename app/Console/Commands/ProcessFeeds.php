@@ -7,6 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Jijiki\Ad;
 use Jijiki\Feed;
+use Jijiki\Blocklist;
 use \Feeds;
 use \HtmlDomParser;
 
@@ -43,12 +44,15 @@ class ProcessFeeds extends Command
      */
     public function handle()
     {
+    	$blocklist = Blocklist::all();
+    	$blocklist = '[' . $blocklist->implode('keyword', '|') . ']';    	
+
         foreach( Feed::all() as $feed ){
             $this->info($feed->name);
             $feed_data = Feeds::make($feed->feed);
             $items = $feed_data->get_items();
 
-            $client = new Client();
+            $client = new Client();            
             
             foreach ($items as $item){
                 $tokens = explode('/', $item->get_link());
@@ -56,7 +60,7 @@ class ProcessFeeds extends Command
                 if (!Ad::find($id)){
                     $price = '';        
                     $title = $item->get_title();
-                    if (preg_match($feed->blocklist, strtolower($title)) == 0){                        
+                    if (preg_match($blocklist, strtolower($title)) == 0){                        
                         $description = "<p>".$item->get_description() . "</p>";
                         $link = $item->get_link();
                         $crawler = $client->request('GET', $link);

@@ -13,8 +13,8 @@ class BlocklistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {    
+        return view('blocklists.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class BlocklistController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

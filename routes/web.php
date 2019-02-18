@@ -17,4 +17,5 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/', 'HomeController@index')->name('home');
 
 	Route::resource('feed', 'FeedController');
+	Route::resource('blocklist', 'BlocklistController');
 });
