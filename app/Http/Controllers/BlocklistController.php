@@ -2,11 +2,10 @@
 
 namespace Jijiki\Http\Controllers;
 
-use Jijiki\Feed;
+use Jijiki\Blocklist;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class FeedController extends Controller
+class BlocklistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,23 +35,23 @@ class FeedController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([   
-            'name' => 'required',
-            'feed' => 'required',
-        ]);
-        $data = [ 'user_id' => Auth::user()->id, 'name' => $request->name, 'feed' => $request->feed,];
-        Feed::create($data);
-
-        return redirect()->back()->with('success', 'Feed created successfully');
+    	$keyword = Blocklist::whereKeyword($request->keyword)->first();
+    	if ( is_null($keyword) ){
+    		Blocklist::create($request->all());	
+    		return redirect()->back()->with('success', 'Keyword created successfully');
+    	} else {
+    		return redirect()->back()->with('error', 'Keyword is already in blocklist');
+    	}
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \Jijiki\Feed  $feed
+     * @param  \Jijiki\Blocklist  $blocklist
      * @return \Illuminate\Http\Response
      */
-    public function show(Feed $feed)
+    public function show(Blocklist $blocklist)
     {
         //
     }
@@ -60,34 +59,33 @@ class FeedController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Jijiki\Feed  $feed
+     * @param  \Jijiki\Blocklist  $blocklist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Feed $feed)
+    public function edit(Blocklist $blocklist)
     {
-        return view('feeds.edit', compact('feed'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Jijiki\Feed  $feed
+     * @param  \Jijiki\Blocklist  $blocklist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Feed $feed)
+    public function update(Request $request, Blocklist $blocklist)
     {
-        $feed->update($request->all());
-        return redirect('/')->with('status', 'Feed updated successfully');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Jijiki\Feed  $feed
+     * @param  \Jijiki\Blocklist  $blocklist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feed $feed)
+    public function destroy(Blocklist $blocklist)
     {
         //
     }
