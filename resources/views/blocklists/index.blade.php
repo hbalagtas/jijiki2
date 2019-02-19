@@ -24,13 +24,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <p>Add a feed to start monitoring ads.</p>
-
+                    
                     {{Form::open(['route' => 'blocklist.store'])}}
                     @include('blocklists.form')
                     <div class="form-group">
-                        {{Form::submit('Add Feed',['class' => 'form-control'])}}    
+                        {{Form::submit('Add Keyword',['class' => 'form-control'])}}    
                     </div>                    
                     {{Form::close()}}
 

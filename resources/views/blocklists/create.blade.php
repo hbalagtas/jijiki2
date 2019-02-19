@@ -24,9 +24,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <p>Add a feed to start monitoring ads.</p>
-
+                    
                     {{Form::open(['route' => 'blocklist.store'])}}
                     @include('feeds.form')
                     <div class="form-group">
