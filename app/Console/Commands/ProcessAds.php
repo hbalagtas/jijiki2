@@ -52,6 +52,7 @@ class ProcessAds extends Command
                 if (Mail::failures()) {
                     $this->info("Failed to send ad emails");
                 } else {
+                    \Log::info('Sent emails for ' . $feed->name . ' with ' . $ads->count() . ' new ads');
                     $ads->update(['emailed' => true]);
                 }    
             }
