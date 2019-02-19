@@ -89,6 +89,8 @@ class FeedController extends Controller
      */
     public function destroy(Feed $feed)
     {
-        //
+        $feed->delete();
+        return redirect()->route('home')
+                        ->with('status','Feed deleted successfully');
     }
 }

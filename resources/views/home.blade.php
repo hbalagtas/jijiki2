@@ -50,7 +50,19 @@
                                 <td>{{$feed->id}}</td>
                                 <td>{{$feed->name}}</td>
                                 <td>{{$feed->created_at->diffForHumans()}}</td>
-                                <td><a href="{{route('feed.edit', $feed->id)}}">Edit</a></td>
+                                <td>
+                                    <a title="Edit" href="{{route('feed.edit', $feed->id)}}"><i class="fas fa-edit"></i></a>
+                                    <a title="Delete" href="{{ route('feed.destroy', $feed->id) }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('delete-form-{{$feed->id}}').submit();">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+
+                                    <form id="delete-form-{{$feed->id}}" action="{{ route('feed.destroy', $feed->id) }}" method="POST" style="display: none;">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach                            
                         </tbody>

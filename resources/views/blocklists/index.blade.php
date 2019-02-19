@@ -44,12 +44,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(Blocklist::all() as $blocklist)
+                            @foreach(Blocklist::orderBy('keyword')->get() as $blocklist)
                             <tr>
                                 <td>{{$blocklist->id}}</td>
                                 <td>{{$blocklist->keyword}}</td>
                                 <td>{{$blocklist->created_at->diffForHumans()}}</td>
-                                <td><a href="{{route('blocklist.edit', $blocklist->id)}}">Edit</a></td>
+                                <td>
+                                    <a href="{{route('blocklist.edit', $blocklist->id)}}" title="Edit"><i class="fas fa-edit"></i></a>                                     
+                                    <a title="Delete" href="{{ route('blocklist.destroy', $blocklist->id) }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('delete-form-{{$blocklist->id}}').submit();">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+
+                                    <form id="delete-form-{{$blocklist->id}}" action="{{ route('blocklist.destroy', $blocklist->id) }}" method="POST" style="display: none;">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach                            
                         </tbody>

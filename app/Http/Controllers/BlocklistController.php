@@ -38,7 +38,7 @@ class BlocklistController extends Controller
     	$keyword = Blocklist::whereKeyword($request->keyword)->first();
     	if ( is_null($keyword) ){
     		Blocklist::create($request->all());	
-    		return redirect()->back()->with('success', 'Keyword created successfully');
+    		return redirect()->back()->with('status', 'Keyword created successfully');
     	} else {
     		return redirect()->back()->with('error', 'Keyword is already in blocklist');
     	}
@@ -64,7 +64,7 @@ class BlocklistController extends Controller
      */
     public function edit(Blocklist $blocklist)
     {
-        //
+        return view('blocklists.edit', compact('blocklist'));
     }
 
     /**
@@ -76,7 +76,8 @@ class BlocklistController extends Controller
      */
     public function update(Request $request, Blocklist $blocklist)
     {
-        //
+        $blocklist->update($request->all());
+        return redirect()->route('blocklist.index')->with('status', 'Keyword updated successfully');
     }
 
     /**
@@ -87,6 +88,8 @@ class BlocklistController extends Controller
      */
     public function destroy(Blocklist $blocklist)
     {
-        //
+        $blocklist->delete();
+        return redirect()->route('blocklist.index')
+                        ->with('status','Keyword deleted successfully');
     }
 }
