@@ -40,6 +40,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Ads Found</th>
                                 <th>Created</th>
                                 <th>Action</th>
                             </tr>
@@ -49,6 +50,7 @@
                             <tr>
                                 <td>{{$feed->id}}</td>
                                 <td>{{$feed->name}}</td>
+                                <td>{{$feed->ads()->count()}}</td>
                                 <td>{{$feed->created_at->diffForHumans()}}</td>
                                 <td>
                                     <a title="Edit" href="{{route('feed.edit', $feed->id)}}"><i class="fas fa-edit"></i></a>
