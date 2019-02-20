@@ -16,8 +16,7 @@ class EmailLog extends Model
      * @param MessageSending $event
      */
     public function handle(MessageSending $event)
-    {
-        \Log::info('Executing email provider');
+    {        
         $message = $event->message;
         $this->create([
         	'date' => date('Y-m-d H:i:s'), 

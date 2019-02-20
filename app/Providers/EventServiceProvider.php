@@ -26,10 +26,7 @@ class EventServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        \Log::info('firing eventserviceprovider');
+    {     
         parent::boot();
-
-        //
     }
 }
