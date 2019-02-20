@@ -2,11 +2,13 @@
 
 namespace Jijiki\Exceptions;
 
-use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Mail;
+use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
 use Jijiki\Mail\ExceptionOccured;
-use Symfony\Component\Debug\Exception\FlattenException;
+
+use Exception;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
