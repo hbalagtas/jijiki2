@@ -4,7 +4,7 @@ namespace Jijiki\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Foundation\Exceptions\SymfonyExceptionHandler;
+use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
 use Jijiki\Mail\ExceptionOccured;
 use Symfony\Component\Debug\Exception\FlattenException;
 
