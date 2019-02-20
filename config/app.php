@@ -174,7 +174,8 @@ return [
         // Jijiki\Providers\BroadcastServiceProvider::class,
         Jijiki\Providers\EventServiceProvider::class,
         Jijiki\Providers\RouteServiceProvider::class,
-
+        Jijiki\Providers\EmailLogServiceProvider::class,
+        
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         willvincent\Feeds\FeedsServiceProvider::class,
@@ -235,6 +236,7 @@ return [
         'Feed' => Jijiki\Feed::class,
         'Ad' => Jijiki\Ad::class,
         'Blocklist' => Jijiki\Blocklist::class,
+        'EmailLog' => Jijiki\EmailLog::class,
 
         'Client' => Goutte\Client::class,
     ],

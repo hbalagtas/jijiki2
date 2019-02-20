@@ -4,7 +4,7 @@ namespace Jijiki\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Mail\Events\MessageSending;
-use Jijiki\Emaillog;
+use Jijiki\EmailLog;
 
 class EmailLogServiceProvider extends EventServiceProvider
 {
@@ -15,7 +15,7 @@ class EmailLogServiceProvider extends EventServiceProvider
      */
     protected $listen = [
         MessageSending::class => [
-            Emaillog::class,
+            EmailLog::class,
         ],
     ];    
 
@@ -26,7 +26,6 @@ class EmailLogServiceProvider extends EventServiceProvider
      */
     public function boot()
     {
-        \Log::info('firing email log');        
         parent::boot();
     }
 }
