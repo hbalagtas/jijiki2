@@ -79,7 +79,9 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready( function () {
-        $('#feedstable').DataTable();
+        $('#feedstable').DataTable( {
+            stateSave: true
+        });
     } );
 </script>
 @endpush

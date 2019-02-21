@@ -70,7 +70,9 @@
 @push('scripts')
 <script type="text/javascript">
     $(document).ready( function () {
-        $('#emaillogstable').DataTable();
+        $('#emaillogstable').DataTable( {
+            stateSave: true
+        });
     } );
 </script>
 @endpush
