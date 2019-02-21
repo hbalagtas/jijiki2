@@ -35,7 +35,7 @@
                     {{Form::close()}}
 
                     <p>Feed list</p>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" id="feedstable">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -75,3 +75,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#feedstable').DataTable();
+    } );
+</script>
+@endpush

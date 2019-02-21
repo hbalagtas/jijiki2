@@ -25,6 +25,17 @@
                         </div>
                     @endif
 
+                    <a title="Email Logs" class="btn btn-info" href="{{route('emaillog.index')}}"><i class="fas fa-mail-bulk"></i></a>
+                    <a title="Delete" class="btn btn-danger" href="{{ route('emaillog.destroy', $emaillog->id) }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('delete-form-{{$emaillog->id}}').submit();">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+
+                    <form id="delete-form-{{$emaillog->id}}" action="{{ route('emaillog.destroy', $emaillog->id) }}" method="POST" style="display: none;">
+                        @method('DELETE')
+                        @csrf
+                    </form>
                     {!! $emaillog->body !!}
                 </div> <!-- end card body -->
             </div> 

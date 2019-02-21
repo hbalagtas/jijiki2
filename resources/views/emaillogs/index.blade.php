@@ -27,7 +27,7 @@
 
                     @if ( $emaillogs->count() > 0)
                     <p></p>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" id="emaillogstable">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -66,3 +66,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#emaillogstable').DataTable();
+    } );
+</script>
+@endpush

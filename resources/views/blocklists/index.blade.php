@@ -34,7 +34,7 @@
 
                     @if ( Blocklist::all()->count() > 0)
                     <p>Blocklist</p>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover" id="keywordtable">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -73,3 +73,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#keywordtable').DataTable();
+    } );
+</script>
+@endpush
