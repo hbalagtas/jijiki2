@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -40,7 +40,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Ads Found</th>
+                                <th>Ads Today</th>
+                                <th>Ads Total</th>
                                 <th>Created</th>
                                 <th>Action</th>
                             </tr>
@@ -50,6 +51,7 @@
                             <tr>
                                 <td>{{$feed->id}}</td>
                                 <td>{{$feed->name}}</td>
+                                <td>{{$feed->ads()->where('created_at', '>=', Carbon\Carbon::today()->toDateTimeString())->count()}}</td>
                                 <td>{{$feed->ads()->count()}}</td>
                                 <td>{{$feed->created_at->diffForHumans()}}</td>
                                 <td>
