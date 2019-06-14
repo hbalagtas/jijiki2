@@ -18,3 +18,4 @@ User adds news feeds and they get email alerts when new ads are posted
 * emailed
 
 
+Scheduled Task - process feeds and populate the ads
